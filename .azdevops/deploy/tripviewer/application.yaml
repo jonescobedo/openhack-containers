@@ -16,20 +16,12 @@ spec:
         - name: tripviewer
           image: registryzlh9820.azurecr.io/tripinsights/tripviewer:1.0
           env:
-          - name: SQL_PASSWORD
-            value: "xF0ks4Du4"
-          - name: SQL_SERVER
-            value:  "sqlserverzlh9820.database.windows.net"
-          - name: SQL_USER
-            value: "sqladminzLh9820"
-          - name: SQL_DB
-            value: "mydrivingDB"
           - name: ASPNETCORE_ENVIRONMENT
             value: "Production"  
           - name: USERPROFILE_API_ENDPOINT
-            value: "10.0.85.53"
+            value: "http://10.0.85.53:80"
           - name: TRIPS_API_ENDPOINT
-            value: "10.0.42.214"
+            value: "http://13.82.19.78:80"
           - name: BING_MAPS_KEY
             value: ""
           ports:

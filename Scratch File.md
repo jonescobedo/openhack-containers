@@ -40,6 +40,37 @@ az aks create --resource-group openhack-containers \
         --max-count 3 \
         --load-balancer-sku basic 
 
-az aks get-credentials --resource-group openhack-containers --name aks-cluster       
+az aks get-credentials --resource-group openhack-containers --name openhackcluster       
 
-az aks update -n aks-cluster -g openhack-containers --attach-acr registryzlh9820.azurecr.io
+az aks update -n openhackcluster -g openhack-containers --attach-acr registryzlh9820.azurecr.io
+
+******** CHALLENGE THREE ********
+
+ $ az network vnet subnet list \
+    --resource-group teamResources \
+    --vnet-name vnet \
+    --query "[0].id" --output tsv
+
+/subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
+
+
+# Get the resource ID of your AKS cluster
+AKS_CLUSTER=$(az aks show --resource-group openhack-containers --name openhackcluster --query id -o tsv)
+
+# Get the account credentials for the logged in user
+ACCOUNT_UPN=$(az account show --query user.name -o tsv)
+ACCOUNT_ID=$(az ad user show --id $ACCOUNT_UPN --query objectId -o tsv)
+GROUP_ID=$(az ad group show --group AKSAdmin --query objectId -o tsv)
+
+# Assign the 'Cluster Admin' role to the user
+az role assignment create \
+    --assignee $GROUP_ID \
+    --scope $AKS_CLUSTER \
+    --role "Azure Kubernetes Service Cluster Admin Role"
+
+    c
+
+az aks get-credentials --resource-group openhack-containers --name openhackcluster --overwrite-existing
+
+kubectl exec -it poi-7bd8b95f95-zfxgm -- /bin/bash
+
