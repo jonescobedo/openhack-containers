@@ -27,6 +27,6 @@ spec:
           - name: ASPNETCORE_ENVIRONMENT
             value: "Production"
           - name: OPENAPI_DOCS_URI
-            value: "http://13.82.19.78"
+            value: "http://13.82.19.78:8081"
           ports:
           - containerPort: 80
