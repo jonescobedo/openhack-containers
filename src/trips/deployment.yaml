@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trips
+spec:
+  selector:
+      matchLabels:
+        app: trips
+  replicas: 1
+  template:
+      metadata:
+        labels:
+            app: trips
+      spec:
+        containers:
+        - name: trips
+          image: registryzlh9820.azurecr.io/tripinsights/trips:1.0
+          env:
+          - name: SQL_PASSWORD
+            value: "xF0ks4Du4"
+          - name: SQL_SERVER
+            value:  "sqlserverzlh9820.database.windows.net"
+          - name: SQL_USER
+            value: "sqladminzLh9820"
+          - name: SQL_DB
+            value: "mydrivingDB"
+          - name: ASPNETCORE_ENVIRONMENT
+            value: "Production"
+          - name: OPENAPI_DOCS_URI
+            value: "http://13.82.19.78:8081"
+          ports:
+          - containerPort: 80
