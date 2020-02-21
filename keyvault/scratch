@@ -5,4 +5,4 @@ kubectl create secret generic kvcreds4 --from-literal clientid=hacker4kvq@OTAPRD
 kubectl create secret generic kvcreds5 --from-literal clientid=hacker5mhu@OTAPRD181ops.onmicrosoft.com --from-literal clientsecret='_NH85rAySG?1' --type=azure/kv
 kubectl create secret generic kvcreds6 --from-literal clientid=hacker6xg4@OTAPRD181ops.onmicrosoft.com --from-literal clientsecret='uk%uQAhSY+|1' --type=azure/kv
 
-kubectl create secret generic sql-user --from-literal clientid=sqladminzLh9820 --from-literal clientsecret='xF0ks4Du4' --type=azure/kv
+kubectl create secret generic sql-user --from-literal clientid=sqladminzLh9820 --from-literal clientsecret='xF0ks4Du4' --type=azure/kv -n api
