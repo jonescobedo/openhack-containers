@@ -40,7 +40,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: poi
+  name: poi-svc
   namespace: api
 spec:
   selector:
