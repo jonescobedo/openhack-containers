@@ -10,11 +10,11 @@ spec:
   rules:
   - http:
       paths:
-      - path: /api/poi/
+      - path: /api/poi/healthcheck
         backend:
           serviceName: poi
           servicePort: 80
-      - path: /api/trips
+      - path: /api/trips/healthcheck
         backend:
           serviceName: trips
           servicePort: 80
@@ -22,7 +22,7 @@ spec:
         backend:
           serviceName: user-java
           servicePort: 80
-      - path: api/user
+      - path: /api/user/healthcheck
         backend:
           serviceName: userprofile
           servicePort: 80
