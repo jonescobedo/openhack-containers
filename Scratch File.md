@@ -74,3 +74,15 @@ az aks get-credentials --resource-group openhack-containers --name openhackclust
 
 kubectl exec -it poi-7bd8b95f95-zfxgm -- /bin/bash
 
+****** CHALLENGE FOUR ******
+
+kubectl create rolebinding api-dev-api-edit --clusterrole=edit --group=5268037b-e73c-4501-b69d-24af661582eb --namespace=api
+kubectl create rolebinding api-dev-web-view --clusterrole=view --group=5268037b-e73c-4501-b69d-24af661582eb --namespace=web
+
+kubectl create rolebinding web-dev-web-edit --clusterrole=edit --group=c0870d60-1097-4f28-9646-d1979f36aa0e --namespace=web
+kubectl create rolebinding web-dev-api-view --clusterrole=view --group=c0870d60-1097-4f28-9646-d1979f36aa0e --namespace=api
+
+kubectl delete rolebinding api-dev-api-edit --namespace=api
+kubectl delete rolebinding api-dev-web-view --namespace=web
+kubectl delete rolebinding web-dev-api-view --namespace=api
+kubectl delete rolebinding web-dev-web-edit --namespace=web

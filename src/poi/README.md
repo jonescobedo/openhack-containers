@@ -91,7 +91,7 @@ docker run -d -p 8080:80 --name poi -v $HOST_FOLDER:/secrets -e "ASPNETCORE_ENVI
 List all the points of interest.
 
 ```bash
-curl -i -X GET 'http://localhost:8080/api/poi' 
+curl -i -X GET 'http://localhost:8080/api/poi'
 ```
 
 Fetch an existing point of interest with id `264ffaa3-1fe8-4fb0-a4fb-63bdbc9999ae`.
