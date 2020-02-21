@@ -20,9 +20,9 @@ spec:
           - name: ASPNETCORE_ENVIRONMENT
             value: "Production"  
           - name: USERPROFILE_API_ENDPOINT
-            value: "http://10.0.85.53:80"
+            value: "http://userprofile.api"
           - name: TRIPS_API_ENDPOINT
-            value: "http://13.82.19.78:80"
+            value: "http://trips.api"
           - name: BING_MAPS_KEY
             value: ""
           ports:

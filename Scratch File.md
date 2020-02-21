@@ -86,3 +86,12 @@ kubectl delete rolebinding api-dev-api-edit --namespace=api
 kubectl delete rolebinding api-dev-web-view --namespace=web
 kubectl delete rolebinding web-dev-api-view --namespace=api
 kubectl delete rolebinding web-dev-web-edit --namespace=web
+
+kubectl apply -f poi/deployment.yaml
+kubectl apply -f trips/deployment.yaml
+kubectl apply -f user-java/deployment.yaml
+kubectl apply -f userprofile/deployment.yaml
+kubectl apply -f tripviewer/deployment.yaml
+
+
+kubectl create secret generic sqluser --from-literal=username=sqladminzLh9820 --from-literal=password='xF0ks4Du4' -n api
