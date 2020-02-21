@@ -17,14 +17,20 @@ spec:
         - name: trips
           image: registryzlh9820.azurecr.io/tripinsights/trips:1.0
           env:
-          - name: SQL_PASSWORD
-            value: "xF0ks4Du4"
           - name: SQL_SERVER
             value:  "sqlserverzlh9820.database.windows.net"
-          - name: SQL_USER
-            value: "sqladminzLh9820"
           - name: SQL_DB
             value: "mydrivingDB"
+          - name: SQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: sql-user
+                key: clientid
+          - name: SQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: sql-user
+                key: clientsecret 
           - name: ASPNETCORE_ENVIRONMENT
             value: "Production"
           - name: OPENAPI_DOCS_URI

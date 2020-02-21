@@ -17,12 +17,18 @@ spec:
         - name: user-java
           image: registryzlh9820.azurecr.io/tripinsights/user-java:1.0
           env:
-          - name: SQL_PASSWORD
-            value: "xF0ks4Du4"
           - name: SQL_SERVER
             value:  "sqlserverzlh9820.database.windows.net"
           - name: SQL_USER
-            value: "sqladminzLh9820"
+            valueFrom:
+              secretKeyRef:
+                name: sql-user
+                key: clientid
+          - name: SQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: sql-user
+                key: clientsecret             
           - name: SQL_DB
             value: "mydrivingDB"
           - name: ASPNETCORE_ENVIRONMENT
