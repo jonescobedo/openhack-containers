@@ -17,6 +17,8 @@ https://github.com/thomasv314/kubernetes-home
 ## ping an internal vm
 kubectl exec -it poi-7bd8b95f95-zfxgm ping internal-vm 
 
+mailto:jstur@microsoft.com
+
 
 ## Success Criteria
 <!-- 
