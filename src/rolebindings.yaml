@@ -8,22 +8,6 @@ roleRef:
   name: cluster-admin
 subjects:
 - apiGroup: rbac.authorization.k8s.io
-  kind: User
-  name: hacker1p7r@OTAPRD181ops.onmicrosoft.com
-- apiGroup: rbac.authorization.k8s.io
-  kind: User
-  name: hacker2kcr@OTAPRD181ops.onmicrosoft.com
-- apiGroup: rbac.authorization.k8s.io
-  kind: User
-  name: hacker3s8b@OTAPRD181ops.onmicrosoft.com 
-- apiGroup: rbac.authorization.k8s.io
-  kind: User
-  name: hacker4kvq@OTAPRD181ops.onmicrosoft.com
-- apiGroup: rbac.authorization.k8s.io
-  kind: User
-  name: hacker5mhu@OTAPRD181ops.onmicrosoft.com
-- apiGroup: rbac.authorization.k8s.io
-  kind: User
-  name: hacker6xg4@OTAPRD181ops.onmicrosoft.com      
-  
-  
+  kind: Group
+  name: fb166f42-3a02-4244-8dfd-a7e7b9818e38
+
