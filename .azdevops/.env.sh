@@ -13,7 +13,7 @@
 
 # export OH_ACR_USER=registryzlh9820
 # export OH_ACR_PASS=dbUW7x5kdaqf=AVU4Kd1dEWOhSy2EYh0
-# export OH_ACR_NAME=registryzlh9820
+export OH_ACR_NAME=registryzlh9820
 
 # # old exercise
 # # export OH_AKS_NAME=aks-cluster-jon
@@ -25,8 +25,13 @@
 
 # aks permissions
 export OH_AKS_RG=openhack-containers
+# myResourceGroup
 export OH_AKS_NAME=openhackcluster
+# myAKSCluster
 export aksname=openhackcluster
 
 # ingress
 export OH_AKS_INGRESS_NAMESPACE=ingress-basic
+
+
+# ssh

@@ -4,7 +4,10 @@
 chmod +x .azdevops/* 
 
 ## get gredentials for local k8s
-az aks get-credentials --resource-group $OH_AKS_RG --name $OH_AKS_NAME
+az aks get-credentials --resource-group $OH_AKS_RG --name $aksname --admin
+
+## You can use the container registry cli for azure:
+az acr repository list --name $OH_ACR_NAME --output table
 
 ## create port forwarding
 kubectl port-forward pods/tripviewer-66856b95cb-gsffr 8080:80
@@ -80,3 +83,68 @@ If TLS is enabled for the Ingress, a Secret containing the certificate and key m
     tls.key: <base64 encoded key>
   type: kubernetes.io/tls 
   -->
+
+<!-- 
+
+  kubectl 
+  -A all
+  -n (namespace)
+  
+  -->
+
+
+
+  kubectl get secret gitlab-registry --namespace=revsys-com --export -o yaml |\
+   kubectl apply --namespace=devspectrum-dev -f -
+
+
+1 aks controllers - 2 ingress
+
+sidecar - istion
+
+ingress from one location
+
+not service discovery on aks cluister
+
+acr registry deployment 
+
+extension monitoring -- ingress 
+octane
+
+--
+until ingress controller
+
+
+container to container communication
+
+https://azure.microsoft.com/en-us/services/azure-arc/#pricing
+
+<!-- 
+Your team restricted access from the deployed services access to kube-apiserver
+Your team limited the access to the Kubernetes API Server to only machines from your location
+Your team demonstrated that the API applications cannot call each other
+Your team restricted ability to deploy applications that have root access
+Your team limited the egress traffic from the cluster
+Your team enabled sql server access from inside the vnet only
+Your team enabled KeyVault access without the need for a secret stored in the cluste
+
+Your team successfully deployed the WCF application into the same AKS cluster as your Linux workloads
+Your team ensured that previous deployments are unchanged and unaffected
+Your team ensured that the updated Trip Viewer web app can successfully communicate with the WCF service
+Your team must demonstrate your cluster is overall "Healthy" 
+-->
+
+<!-- 
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+ -->
+
+
+az aks update \
+    --resource-group $OH_AKS_RG \
+    --name $aksname \
+    --enable-pod-security-policy
+
